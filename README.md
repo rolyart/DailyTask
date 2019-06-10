@@ -1,7 +1,7 @@
 # Dailytask
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.0.2.
-[Demo](http://apps.rolyart.ro/dailytask)
+View [Demo](http://apps.rolyart.ro/dailytask)
 
 ## Development server
 
