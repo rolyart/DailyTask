@@ -1,0 +1,39 @@
+<form class="add-task" (keyup.enter)="addTask(time,newTask)">
+  <mat-form-field class="time-control">
+    <input matInput placeholder="Set time" [owlDateTimeTrigger]="dt2" [owlDateTime]="dt2" [(ngModel)]="time" name="time">
+    <owl-date-time [pickerType]="'timer'"  stepMinute="{{stepMinute}}" #dt2></owl-date-time>
+  </mat-form-field>
+    <mat-form-field  class="task-control">
+      <input matInput placeholder="Add new task and press enter" [(ngModel)]="newTask" name="newTask" >
+    </mat-form-field>
+</form>
+
+<ng-template #noData>
+  <mat-list role="list" class="todo-list" [@showHide] >
+      <mat-card *ngIf="data.todo.length===0">
+          <mat-card-header>
+              <mat-card-title><mat-icon>done_all</mat-icon> No have task today.</mat-card-title>
+          </mat-card-header>
+        <img mat-card-image src="assets/nothing-to-do.jpg" alt="Photo of a Shiba Inu">
+      </mat-card>
+  </mat-list>
+</ng-template>
+
+<mat-list role="list" class="todo-list" *ngIf="data.todo.length>0;else noData">
+  <mat-card 
+    *ngFor="let item of data.todo" 
+    class="todo-item" 
+    [ngClass]="{'done-true': item.completed, 'done-false': !item.completed}"
+    [@translateY]
+  >
+    <button mat-button color="primary" class="time" >{{item.time | date:'HH:mm'}}</button>
+    <button mat-button  class="title">
+      <mat-icon (click)="uncheckTask(item)" class="checked"  *ngIf="item.completed">check_box</mat-icon>
+      <mat-icon  (click)="checkTask(item)" class="unchecked" *ngIf="!item.completed">check_box_outline_blank</mat-icon>
+      {{item.title}}
+    </button>
+    <button mat-button class="delete" color="warn">
+      <mat-icon (click)="removeTask(item)" class="btn" color="7CB342" >delete</mat-icon>
+    </button>
+  </mat-card>
+</mat-list>

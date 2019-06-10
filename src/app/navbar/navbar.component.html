@@ -1,0 +1,15 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <mat-icon>done_all</mat-icon> <span class="app-name">{{appName}}</span>
+    <span class="example-spacer"></span>
+    <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+      <mat-icon>more_vert</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item (click)="setStepMinute(10)">Step Minute 10</button>
+      <button mat-menu-item (click)="setStepMinute(15)">Step Minute 15</button>
+      <button mat-menu-item (click)="setStepMinute(30)">Step Minute 30</button>
+      <button mat-menu-item (click)="setStepMinute(60)">Step Minute 60</button>
+    </mat-menu>
+  </mat-toolbar-row>
+</mat-toolbar>
