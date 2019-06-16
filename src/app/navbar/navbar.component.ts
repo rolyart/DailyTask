@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, ApplicationModule } from '@angular/core';
+import { Component, OnInit, Input, ApplicationModule, ɵConsole } from '@angular/core';
 
 @Component({
   selector: 'app-navbar',
@@ -16,7 +16,9 @@ export class NavbarComponent implements OnInit {
     localStorage.setItem("appSett", JSON.stringify(this.appSettings));
     window.location.reload();
   }
-  ngOnInit() {
+ 
 
+
+  ngOnInit() {
   }
 }

@@ -167,6 +167,34 @@ export class TodolistComponent implements OnInit {
       type:'success'
     });
   }
+
+  /**
+   * deleteAll
+   */
+  deleteAll(){
+    localStorage.removeItem('dailyTask');
+    this.data.todo = [];
+  }
+  /**
+   * checkAll
+   */
+  checkAll(){
+    this.data.todo.map(function(x) { 
+        x.completed = true; 
+        return x;
+    });
+    this.updateDataStorage();
+  }
+  /**
+   * uncheckAll
+   */
+  uncheckAll(){
+    this.data.todo.map(function(x) { 
+        x.completed = false; 
+        return x;
+    });
+    this.updateDataStorage();
+  }
   
   /**
    * sortTask()

@@ -36,4 +36,9 @@
       <mat-icon (click)="removeTask(item)" class="btn" color="7CB342" >delete</mat-icon>
     </button>
   </mat-card>
+  <div class="action">
+    <button mat-icon-button color="primary" (click)="checkAll()"><mat-icon>check</mat-icon></button>
+    <button mat-icon-button color="accent"  (click)="uncheckAll()"><mat-icon>redo</mat-icon></button>
+    <button mat-icon-button color="warn"    (click)="deleteAll()"><mat-icon>delete</mat-icon></button>
+</div>
 </mat-list>
